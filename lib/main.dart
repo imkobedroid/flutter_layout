@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/statefull_group_page.dart';
 
 import 'FlutterlayoutPage.dart';
+import 'app_lifecycle.dart';
+import 'flutter_widget_lifecycle.dart';
 import 'gesture_page.dart';
 import 'less_group_page.dart';
 
@@ -23,6 +25,8 @@ class MyApp extends StatelessWidget {
         'ful': (BuildContext context) => StatefulGroup(),
         'layout': (BuildContext context) => FlutterlayoutPage(),
         'GesturePage': (BuildContext context) => GesturePage(),
+        'LifecyclePage': (BuildContext context) => LifecyclePage(),
+        'AppLifecycle': (BuildContext context) => AppLifecycle(),
       },
     );
   }
@@ -56,6 +60,9 @@ class _MyHomePageState extends State<MyHomePage> {
           _item("StatefulWidget基础组建  ful", StatefulGroup(), "ful"),
           _item("StatelessWidget基础组建  layout", FlutterlayoutPage(), "layout"),
           _item("如何检测用户手势以及处理点击事件?  GesturePage", GesturePage(), "GesturePage"),
+          _item("flutter的页面生命周期  LifecyclePage", LifecyclePage(),
+              "LifecyclePage"),
+          _item("flutter的应用生命周期  AppLifecycle", AppLifecycle(), "AppLifecycle"),
         ])));
   }
 
@@ -64,10 +71,10 @@ class _MyHomePageState extends State<MyHomePage> {
       child: RaisedButton(
         onPressed: () {
           if (byName) {
-            Navigator.pushNamed(context, routeName);  //需要在类中注册页面名字进行跳转
+            Navigator.pushNamed(context, routeName); //需要在类中注册页面名字进行跳转
           } else {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => page));  //不用注册页面进行跳转
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => page)); //不用注册页面进行跳转
           }
         },
         child: Text(title),

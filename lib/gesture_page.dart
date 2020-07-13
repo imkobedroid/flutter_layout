@@ -48,7 +48,6 @@ class _GesturePageState extends State<GesturePage> {
                     ),
                   ),
                   Text(printMsg),
-
                 ],
               ),
               Positioned(
