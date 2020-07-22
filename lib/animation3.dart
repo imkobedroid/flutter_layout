@@ -65,19 +65,7 @@ class AnimationLogo extends StatelessWidget {
         child: FlutterLogo(),
       );
 }
-
-//下面这个组件不执行动画  因为center不能设置宽高
-//class AnimationLogo extends StatelessWidget {
-//  @override
-//  Widget build(BuildContext context) => Center(
-//        child: Container(
-//          margin: EdgeInsets.symmetric(vertical: 10),
-//          child: FlutterLogo(),
-//        ),
-//      );
-//}
-
-//下面这个组件不执行动画  因为center不能设置宽高
+//
 //class AnimationLogo extends StatelessWidget {
 //  @override
 //  Widget build(BuildContext context) => Center(child: FlutterLogo());
