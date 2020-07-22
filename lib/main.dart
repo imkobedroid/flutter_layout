@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/photo_app_page.dart';
 import 'package:flutter_app/statefull_group_page.dart';
 
 import 'FlutterlayoutPage.dart';
+import 'TestPhoto.dart';
 import 'app_lifecycle.dart';
 import 'flutter_widget_lifecycle.dart';
 import 'gesture_page.dart';
@@ -27,6 +29,8 @@ class MyApp extends StatelessWidget {
         'GesturePage': (BuildContext context) => GesturePage(),
         'LifecyclePage': (BuildContext context) => LifecyclePage(),
         'AppLifecycle': (BuildContext context) => AppLifecycle(),
+        'TestPhoto': (BuildContext context) => TestPhoto(),
+        'PhotoApp': (BuildContext context) => PhotoApp(),
       },
     );
   }
@@ -63,6 +67,8 @@ class _MyHomePageState extends State<MyHomePage> {
           _item("flutter的页面生命周期  LifecyclePage", LifecyclePage(),
               "LifecyclePage"),
           _item("flutter的应用生命周期  AppLifecycle", AppLifecycle(), "AppLifecycle"),
+          _item("拍照app的测试  TestPhoto", TestPhoto(), "TestPhoto"),
+          _item("拍照开发", PhotoApp(), "PhotoApp"),
         ])));
   }
 
