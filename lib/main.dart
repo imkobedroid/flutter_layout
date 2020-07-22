@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/image1.dart';
 import 'package:flutter_app/photo_app_page.dart';
 import 'package:flutter_app/statefull_group_page.dart';
 
 import 'FlutterlayoutPage.dart';
 import 'TestPhoto.dart';
+import 'animation1.dart';
+import 'animation2.dart';
+import 'animation3.dart';
 import 'app_lifecycle.dart';
 import 'flutter_widget_lifecycle.dart';
 import 'gesture_page.dart';
+import 'image2.dart';
 import 'less_group_page.dart';
 
 void main() => runApp(MyApp());
@@ -31,6 +36,11 @@ class MyApp extends StatelessWidget {
         'AppLifecycle': (BuildContext context) => AppLifecycle(),
         'TestPhoto': (BuildContext context) => TestPhoto(),
         'PhotoApp': (BuildContext context) => PhotoApp(),
+        'ImageStudy1': (BuildContext context) => ImageStudy1(),
+        'ImageStudy2': (BuildContext context) => ImageStudy2(),
+        'Animation1': (BuildContext context) => Animation1(),
+        'Animation2': (BuildContext context) => Animation2(),
+        'Animation3': (BuildContext context) => Animation3(),
       },
     );
   }
@@ -51,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
           title: Text("路由跳转"),
         ),
         body: Center(
-            child: Column(children: <Widget>[
+            child: ListView(children: <Widget>[
           SwitchListTile(
               title: Text('${byName ? '' : '不'}通过路由跳转'),
               value: byName,
@@ -60,21 +70,28 @@ class _MyHomePageState extends State<MyHomePage> {
                   byName = value;
                 });
               }),
-          _item("StatelessWidget基础组建  less", LessGroup(), "less"),
-          _item("StatefulWidget基础组建  ful", StatefulGroup(), "ful"),
-          _item("StatelessWidget基础组建  layout", FlutterlayoutPage(), "layout"),
-          _item("如何检测用户手势以及处理点击事件?  GesturePage", GesturePage(), "GesturePage"),
-          _item("flutter的页面生命周期  LifecyclePage", LifecyclePage(),
-              "LifecyclePage"),
-          _item("flutter的应用生命周期  AppLifecycle", AppLifecycle(), "AppLifecycle"),
-          _item("拍照app的测试  TestPhoto", TestPhoto(), "TestPhoto"),
+          _item("StatelessWidget基础组建", LessGroup(), "less"),
+          _item("StatefulWidget基础组建", StatefulGroup(), "ful"),
+          _item("StatelessWidget基础组建", FlutterlayoutPage(), "layout"),
+          _item("如何检测用户手势以及处理点击事件?", GesturePage(), "GesturePage"),
+          _item("flutter的页面生命周期", LifecyclePage(), "LifecyclePage"),
+          _item("flutter的应用生命周期", AppLifecycle(), "AppLifecycle"),
+          _item("拍照app的测试", TestPhoto(), "TestPhoto"),
           _item("拍照开发", PhotoApp(), "PhotoApp"),
+          _item("图片加载时候显示默认图", ImageStudy1(), "ImageStudy1"),
+          _item("图片缓存", ImageStudy2(), "ImageStudy2"),
+          _item("放大动画", Animation1(), "Animation1"),
+          _item("简化版本放大动画", Animation2(), "Animation2"),
+          _item("封装动画与组件，拆分动画与组件", Animation3(), "Animation3"),
         ])));
   }
 
   _item(String title, page, String routeName) {
     return Container(
-      child: RaisedButton(
+      margin: EdgeInsets.only(left: 10, right: 10),
+      child: MaterialButton(
+        color: Colors.lightBlue,
+        minWidth: double.infinity,
         onPressed: () {
           if (byName) {
             Navigator.pushNamed(context, routeName); //需要在类中注册页面名字进行跳转
@@ -83,7 +100,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 MaterialPageRoute(builder: (context) => page)); //不用注册页面进行跳转
           }
         },
-        child: Text(title),
+        child: Center(child: Text(title),),
       ),
     );
   }
