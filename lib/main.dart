@@ -6,7 +6,9 @@ import 'package:flutter_app/statefull_group_page.dart';
 
 import 'FlutterlayoutPage.dart';
 import 'FutureBuilderTest.dart';
+import 'GridViewPage.dart';
 import 'HtppApp.dart';
+import 'RefreshPage.dart';
 import 'TestPhoto.dart';
 import 'animation1.dart';
 import 'animation2.dart';
@@ -54,6 +56,8 @@ class MyApp extends StatelessWidget {
         'shared_preferences实现计时器': (BuildContext context) => CounterWidget(),
         'ListView使用': (BuildContext context) => ListTest(),
         '可伸展收缩的ListView': (BuildContext context) => ExpansionTest(),
+        '网格布局': (BuildContext context) => GridViewPage(),
+        '下拉刷新与上拉加载更多功能实现': (BuildContext context) => RefreshPage(),
       },
     );
   }
@@ -107,6 +111,8 @@ class _MyHomePageState extends State<MyHomePage> {
               "shared_preferences实现计时器", CounterWidget(), "CounterWidget.dart"),
           _item("ListView使用", ListTest(), "ListTest"),
           _item("可伸展收缩的ListView", ExpansionTest(), "ExpansionTest"),
+          _item("网格布局", GridViewPage(), "GridViewPage"),
+          _item("下拉刷新与上拉加载更多功能实现", RefreshPage(), "RefreshPage"),
         ])));
   }
 
