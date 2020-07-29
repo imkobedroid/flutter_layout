@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/image1.dart';
 import 'package:flutter_app/photo_app_page.dart';
+import 'package:flutter_app/shared.dart';
 import 'package:flutter_app/statefull_group_page.dart';
 
 import 'FlutterlayoutPage.dart';
@@ -11,12 +12,14 @@ import 'animation1.dart';
 import 'animation2.dart';
 import 'animation3.dart';
 import 'app_lifecycle.dart';
+import 'expansionTitlePage.dart';
 import 'flutter_widget_lifecycle.dart';
 import 'gesture_page.dart';
 import 'heroAnimation.dart';
 import 'heroAnimation1.dart';
 import 'image2.dart';
 import 'less_group_page.dart';
+import 'listPage.dart';
 
 void main() => runApp(MyApp());
 //void main() => runApp(GesturePage());
@@ -48,6 +51,9 @@ class MyApp extends StatelessWidget {
         'RadialExpansionDemo': (BuildContext context) => RadialExpansionDemo(),
         'HttpApp': (BuildContext context) => HttpApp(),
         'FutureBuilder使用': (BuildContext context) => MyFutureBuilder(),
+        'shared_preferences实现计时器': (BuildContext context) => CounterWidget(),
+        'ListView使用': (BuildContext context) => ListTest(),
+        '可伸展收缩的ListView': (BuildContext context) => ExpansionTest(),
       },
     );
   }
@@ -95,6 +101,12 @@ class _MyHomePageState extends State<MyHomePage> {
           _item("http请求", HttpApp(), "HttpApp"),
           _item("FutureBuilderTest使用", MyFutureBuilder(),
               "FutureBuilderTest.dart"),
+          _item("FutureBuilderTest使用", MyFutureBuilder(),
+              "FutureBuilderTest.dart"),
+          _item(
+              "shared_preferences实现计时器", CounterWidget(), "CounterWidget.dart"),
+          _item("ListView使用", ListTest(), "ListTest"),
+          _item("可伸展收缩的ListView", ExpansionTest(), "ExpansionTest"),
         ])));
   }
 
@@ -112,7 +124,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 MaterialPageRoute(builder: (context) => page)); //不用注册页面进行跳转
           }
         },
-        child: Center(child: Text(title),),
+        child: Center(
+          child: Text(title),
+        ),
       ),
     );
   }
