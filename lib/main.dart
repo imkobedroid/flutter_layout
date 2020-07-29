@@ -4,6 +4,8 @@ import 'package:flutter_app/photo_app_page.dart';
 import 'package:flutter_app/statefull_group_page.dart';
 
 import 'FlutterlayoutPage.dart';
+import 'FutureBuilderTest.dart';
+import 'HtppApp.dart';
 import 'TestPhoto.dart';
 import 'animation1.dart';
 import 'animation2.dart';
@@ -12,6 +14,7 @@ import 'app_lifecycle.dart';
 import 'flutter_widget_lifecycle.dart';
 import 'gesture_page.dart';
 import 'heroAnimation.dart';
+import 'heroAnimation1.dart';
 import 'image2.dart';
 import 'less_group_page.dart';
 
@@ -42,7 +45,9 @@ class MyApp extends StatelessWidget {
         'Animation1': (BuildContext context) => Animation1(),
         'Animation2': (BuildContext context) => Animation2(),
         'Animation3': (BuildContext context) => Animation3(),
-        'HeroAnimation': (BuildContext context) => HeroAnimation(),
+        'RadialExpansionDemo': (BuildContext context) => RadialExpansionDemo(),
+        'HttpApp': (BuildContext context) => HttpApp(),
+        'FutureBuilder使用': (BuildContext context) => MyFutureBuilder(),
       },
     );
   }
@@ -86,6 +91,10 @@ class _MyHomePageState extends State<MyHomePage> {
           _item("简化版本放大动画", Animation2(), "Animation2"),
           _item("封装动画与组件，拆分动画与组件", Animation3(), "Animation3"),
           _item("Hero动画", HeroAnimation(), "HeroAnimation"),
+          _item("Hero高级动画", RadialExpansionDemo(), "RadialExpansionDemo"),
+          _item("http请求", HttpApp(), "HttpApp"),
+          _item("FutureBuilderTest使用", MyFutureBuilder(),
+              "FutureBuilderTest.dart"),
         ])));
   }
 
